@@ -25,7 +25,7 @@ int main () {
     DEN = 1.0f;
     PI = 1.0f;
     I = 0;
-    Loop = 10000;
+    Loop = 6000;
 
     chrono::system_clock::time_point start, end;
     start = chrono::system_clock::now();
