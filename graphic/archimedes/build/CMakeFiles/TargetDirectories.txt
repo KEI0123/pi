@@ -1,0 +1,3 @@
+/home/kei/workspace/c++/sfml/archimedes/build/CMakeFiles/archimedes.dir
+/home/kei/workspace/c++/sfml/archimedes/build/CMakeFiles/edit_cache.dir
+/home/kei/workspace/c++/sfml/archimedes/build/CMakeFiles/rebuild_cache.dir

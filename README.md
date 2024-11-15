@@ -1,59 +1,36 @@
-# Name（リポジトリ/プロジェクト/OSSなどの名前）
+# PI calculation
 
-分かりやすくてカッコイイ名前をつける（今回は"hoge"という名前をつける）
-
-"hoge"が何かを簡潔に紹介する
-
-# DEMO
-
-"hoge"の魅力が直感的に伝えわるデモ動画や図解を載せる
+[![Open in Visual Studio Code](https://img.shields.io/static/v1?logo=visualstudiocode&label=&message=Open%20in%20Visual%20Studio%20Code&labelColor=2c2c32&color=007acc&logoColor=007acc)](https://open.vscode.dev/KEI0123/pi)
+"PI calculation" is a collection of programs to find pi using c++;
 
 # Features
 
-"hoge"のセールスポイントや差別化などを説明する
+"PI calculation" used [boost.multiprecision](https://www.boost.org/) and [The GNU Multiple Precision Arithmetic Library](https://gmplib.org/)
 
 # Requirement
 
-"hoge"を動かすのに必要なライブラリなどを列挙する
-
-* huga 3.5.2
-* hogehuga 1.0.2
-
-# Installation
-
-Requirementで列挙したライブラリなどのインストール方法を説明する
-
-```bash
-pip install huga_package
-```
+* boost 1.86.0
+* GMP 6.3.0
+* sfml 2.6.2
 
 # Usage
 
-DEMOの実行方法など、"hoge"の基本的な使い方を説明する
-
 ```bash
-git clone https://github.com/hoge/~
-cd examples
-python demo.py
+git clone https://github.com/KEI0123/pi
+cd graphic/buffon/
+make run
 ```
 
 # Note
 
-注意点などがあれば書く
-
-# Author
-
-作成情報を列挙する
-
-* 作成者
-* 所属
-* E-mail
+I'm a beginner, so I'm sure many of you who want to try a better implementation will have to look elsewhere.
 
 # License
-ライセンスを明示する
+This project is licensed under the MIT License. Additionally, it uses the following third-party libraries: 
+- **GMP**: Licensed under the [GNU LGPL and GNU GPL](https://gmplib.org/manual/Copying.html).
+- **SFML**: Licensed under the [Zlib License](https://www.sfml-dev.org/license.php).
+- **Boost**: Licensed under the [Boost Software License 1.0](https://www.boost.org/users/license.html). 
 
-"hoge" is under [MIT license](https://en.wikipedia.org/wiki/MIT_License).
+See the [LICENSE](LICENSE) file for more details.
 
-社内向けなら社外秘であることを明示してる
-
-"hoge" is Confidential.
+Thank you!
