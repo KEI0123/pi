@@ -46,7 +46,7 @@ int  main (int argc, char *argv[]) {
     string path = argv[1];
 
     string myPIa = getStringFromFile(path);
-    string PIa = getStringFromFile("./pi100000.txt");
+    string PIa = getStringFromFile("./pimax.txt");
 
     string myPI = removeEnter(myPIa);
     string PI = removeEnter(PIa);

@@ -2,46 +2,52 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <gmpxx.h>
 #include <boost/multiprecision/cpp_int.hpp>
 #include <boost/multiprecision/cpp_dec_float.hpp>
 
 using namespace std;
-namespace mp = boost::multiprecision;
+//namespace mp = boost::multiprecision;
 
 //typedef mp::cpp_dec_float_100 FLOAT;
-typedef mp::number<mp::cpp_dec_float<100000>> FLOAT;
+//typedef mp::number<mp::cpp_dec_float<1000>> FLOAT;
 //typedef mp::cpp_int INT;
 
 int main () {
-    FLOAT A, An, TWO, B, T, P, MOL, DEN, PI;
+    int dig = 2000000;
+    int prec = dig * log2(10);
 
-    A = 1.0f;
-    An = 0.0f;
-    TWO = 2.0f;
-    B = 1 / mp::sqrt(TWO);
-    T = 0.25f;
-    P = 1.0f;
+    mpf_set_default_prec(prec);
 
-    PI = 1.0f;
+    mpf_class A, An, TWO, B, T, P, MOL, DEN, PI;
+
+    A = 1.0;
+    An = 0.0;
+    TWO = 2.0;
+    B = 1 / sqrt(TWO);
+    T = 0.25;
+    P = 1.0;
+
+    PI = 1.0;
 
     chrono::system_clock::time_point start, end;
     start = chrono::system_clock::now();
 
     //=====================================================================================//
     
-    long long Loop = 10000;
+    long long Loop = 12000;
     for (long long i = 0; i < Loop; ++i){
-        FLOAT AA, AAA, AAAA;
+        mpf_class AA, AAA, AAAA;
         AA = A + B;
-        PI = mp::pow(AA, 2) / (4 * T);
+        PI = (AA * AA) / (4 * T);
 
         An = AA / 2;
 
         AAA = A * B;
-        B = mp::sqrt(AAA);
+        B = sqrt(AAA);
 
         AAAA = A - An;
-        T -= P * mp::pow(AAAA, 2);
+        T -= P * (AAAA * AAAA);
         P *= 2;
         A = An;
     }
@@ -51,12 +57,15 @@ int main () {
     end = chrono::system_clock::now();
     double elapsed = chrono::duration_cast<chrono::milliseconds>(end-start).count();
 
+    cout << setprecision(dig) << PI << endl;
     cout << "ms : " << elapsed << endl;
-    cout << setprecision(numeric_limits<decltype(PI)>::digits10 + 1) << PI << endl;
     
     //cout << setprecision(200) << PI << endl;
     
-    string PIstr = PI.str();
+    char *str = nullptr;
+    gmp_asprintf(&str, "%.Ff", PI.get_mpf_t());
+    string result(str);
+    string PIstr = str;
     string PIout = "";
 
     long long i = 0;
@@ -82,4 +91,6 @@ int main () {
     ofstream outputfile("pi.txt");
     outputfile << PIout;
     outputfile.close();
+
+    return 0;
 }

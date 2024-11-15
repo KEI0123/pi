@@ -15,7 +15,7 @@ using namespace std;
 //typedef mp::cpp_int INT;
 
 int main () {
-    int dig = 100000;
+    int dig = 250000;
     int prec = dig * log2(10);
 
     mpf_set_default_prec(prec);
@@ -34,7 +34,7 @@ int main () {
     DEN = 1.0;
     PI = 1;
     I = 0;
-    Loop =200000;
+    Loop =250000;
 
     chrono::system_clock::time_point start, end;
     start = chrono::system_clock::now();
