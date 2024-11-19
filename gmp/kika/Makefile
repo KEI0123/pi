@@ -15,5 +15,7 @@ $(OBJS) : $(SRCS)
 run : $(TARGET)
 	./$(TARGET)
 
+mv:
+	mv ./pi.txt /mnt/c/Users/keisy/Documents/C++/pi/judge/
 clean :
 	rm -f ./$(TARGET)

@@ -2,6 +2,9 @@
 #include <vector>
 #include <fstream>
 #include <string>
+#include <gmpxx.h>
+#include <boost/multiprecision/cpp_int.hpp>
+#include <boost/multiprecision/cpp_dec_float.hpp>
 
 using namespace std;
 
@@ -33,27 +36,29 @@ string removeEnter(string& str) {
     return restr;
 }
 
-int  main () {
-    cout << "Please enter pi.txt path : ";
-    string path = "";
-    cin >> path;
+int  main (int argc, char *argv[]) {
+    if (argc != 2) {
+        cerr << "Usage: " << argv[0] << " <file path>" << endl;
+        return 1;
+    }
+
+    string path = argv[1];
 
     string myPIa = getStringFromFile(path);
-    string PIa = getStringFromFile("./pismall.txt");
+    string PIa = getStringFromFile("./pi100000.txt");
 
     string myPI = removeEnter(myPIa);
     string PI = removeEnter(PIa);
+    
+    myPI.insert(1, 1, '.');
+    int digits = PI.size();
+    int prec = digits * log2(10);
+    mpf_set_default_prec(prec);
 
 
-    for (long long i = 0; i < myPI.size(); ++i) {
-        if (myPI.at(i) != PI.at(i)) {
-            cout << i << endl;
-            cout << "This is true : ";
-            for (long long j = 0; j < i; ++j) {
-                cout << myPI.at(j);
-            }
-            cout << endl;
-            return 0;
-        }
-    }
+    mpf_class mypi(myPI);
+    mpf_class pi(PI);
+
+    cout << mypi - pi << endl;
+    return 0;
 }

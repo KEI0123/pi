@@ -29,7 +29,7 @@ int main () {
 
     //=====================================================================================//
     
-    long long Loop = 10000;
+    long long Loop = 10;
     for (long long i = 0; i < Loop; ++i){
         FLOAT AA, AAA, AAAA;
         AA = A + B;

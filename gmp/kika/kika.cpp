@@ -15,7 +15,7 @@ using namespace std;
 //typedef mp::cpp_int INT;
 
 int main () {
-    int dig = 100000000;
+    int dig = 1500000000;
     int prec = dig * log2(10);
 
     mpf_set_default_prec(prec);
@@ -36,7 +36,7 @@ int main () {
 
     //=====================================================================================//
     
-    long long Loop = 26;
+    long long Loop = 30;
     for (long long i = 0; i < Loop; ++i){
         mpf_class AA, AAA, AAAA;
         AA = A + B;
@@ -69,19 +69,20 @@ int main () {
     string PIstr = str;
     string PIout = "";
 
-    long long i = 0;
-    bool a = true;
+    int i = 1;
+    //bool a = true;
+    PIstr.erase(1, 1);
     for (char c : PIstr) {
         PIout.push_back(c);
-        if (i == 1 && a == true) {
-            PIout.push_back('\n');
-            a = false;
-            i = 0;
-        } 
+        //if (i == 1 && a == true) {
+        //    PIout.push_back('\n');
+        //    a = false;
+        //    i = 0;
+        //} 
         //else if (i % 11 == 0) {
         //    PIout.push_back(' ');
         //}
-        else if (i == 100) {
+        if (i == 100) {
             PIout.push_back('\n');
             i = 0;
         }
