@@ -46,7 +46,7 @@ int  main (int argc, char *argv[]) {
     string path = argv[1];
 
     string myPIa = getStringFromFile(path);
-    string PIa = getStringFromFile("./pi-10oku.txt.part0");
+    string PIa = getStringFromFile("./pi-10oku0.txt");
 
     string myPI = removeEnter(myPIa);
     string PI = removeEnter(PIa);
