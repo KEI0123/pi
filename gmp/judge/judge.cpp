@@ -46,16 +46,16 @@ int  main (int argc, char *argv[]) {
     string path = argv[1];
 
     string myPIa = getStringFromFile(path);
-    string PIa = getStringFromFile("./pi-10oku0.txt");
+    string PIa = getStringFromFile("./pi.txt");
 
     string myPI = removeEnter(myPIa);
     string PI = removeEnter(PIa);
     
     myPI.insert(1, 1, '.');
+    PI.insert(1, 1, '.');
     int digits = PI.size();
     int prec = digits * log2(10);
     mpf_set_default_prec(prec);
-
 
     mpf_class mypi(myPI);
     mpf_class pi(PI);

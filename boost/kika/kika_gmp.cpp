@@ -14,7 +14,7 @@ using namespace boost::multiprecision;
 //typedef mp::cpp_int INT;
 
 int main () {
-    int dig = 1000000;
+    int dig = 10000000;
     mpf_float::default_precision(dig);
     mpf_float A, An, TWO, B, T, P, MOL, DEN, PI;
 
@@ -32,7 +32,8 @@ int main () {
 
     //=====================================================================================//
     
-    long long Loop = 20;
+    long long Loop = 10;
+
     for (long long i = 0; i < Loop; ++i){
         mpf_float AA, AAA, AAAA;
         AA = A + B;

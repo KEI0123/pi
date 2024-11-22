@@ -1,8 +1,8 @@
 CXX = g++
 GMP = -lgmpxx -lgmp
 OPTIONS = -std=c++20 -Wall -Wextra -Wpedantic
-TARGET = Leibniz
-SRCS = Leibniz.cpp
+TARGET = leibniz
+SRCS = leibniz.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 $(TARGET) : $(OBJS)

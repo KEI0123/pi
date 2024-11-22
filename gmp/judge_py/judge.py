@@ -4,7 +4,7 @@ import requests
 api_url = "https://api.pi.delivery/v1/pi"
 
 # パラメータの設定
-start = 200000000 - 1000 + 1  # 取得開始位置
+start = 1000000000 - 1000 + 1  # 取得開始位置
 number_of_digits = 1000  # 取得する桁数
 
 # APIリクエストのURL

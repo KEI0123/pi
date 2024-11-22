@@ -1,5 +1,6 @@
 CXX = g++
-GMP = -lgmpxx -lgmp
+#CXX = x86_64-w64-mingw32-g++
+GMP = -fopenmp -lgmpxx -lgmp
 OPTIONS = -std=c++20 -Wall -Wextra -Wpedantic
 #FIRST_OPTION = -O3 -mtune=native -march=native -mfpmath=both
 TARGET = kika_gmp

@@ -1,5 +1,5 @@
 CXX = g++
-GMP = -lgmpxx -lgmp
+GMP = -fopenmp -lgmpxx -lgmp
 OPTIONS = -std=c++20 -Wall -Wextra -Wpedantic
 FIRST_OPTION = -O3 -mtune=native -march=native -mfpmath=both
 TARGET = kika

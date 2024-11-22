@@ -15,8 +15,8 @@ using namespace std;
 //typedef mp::cpp_int INT;
 
 int main () {
-    int dig = 250000;
-    int prec = dig * log2(10);
+    int digi = 100;
+    int prec = digi * log2(10);
 
     mpf_set_default_prec(prec);
 
@@ -34,7 +34,7 @@ int main () {
     DEN = 1.0;
     PI = 1;
     I = 0;
-    Loop =250000;
+    Loop =3;
 
     chrono::system_clock::time_point start, end;
     start = chrono::system_clock::now();
@@ -55,7 +55,7 @@ int main () {
     
     PI = PI * NINE;
     PI = sqrt((mpf_class)PI);
-    cout << setprecision(dig) << PI << endl;
+    cout << setprecision(digi) << PI << endl;
     
     char *str = nullptr;
     gmp_asprintf(&str, "%.Ff", PI.get_mpf_t());
@@ -63,19 +63,20 @@ int main () {
     string PIstr = str;
     string PIout = "";
 
-    long long i = 0;
-    bool a = true;
+    int i = 0;
+    //bool a = true;
+    PIstr.erase(1, 1);
     for (char c : PIstr) {
         PIout.push_back(c);
-        if (i == 1 && a == true) {
-            PIout.push_back('\n');
-            a = false;
-            i = 0;
-        } 
+        //if (i == 1 && a == true) {
+        //    PIout.push_back('\n');
+        //    a = false;
+        //    i = 0;
+        //} 
         //else if (i % 11 == 0) {
         //    PIout.push_back(' ');
         //}
-        else if (i == 100) {
+        if (i == 100) {
             PIout.push_back('\n');
             i = 0;
         }

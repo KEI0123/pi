@@ -4,19 +4,16 @@
 #include <fstream>
 #include <gmpxx.h>
 #include <math.h>
+#include <omp.h>
 #include <boost/multiprecision/cpp_int.hpp>
 #include <boost/multiprecision/cpp_dec_float.hpp>
 
 using namespace std;
-//namespace mp = boost::multiprecision;
-
-//typedef mp::cpp_dec_float_100 FLOAT;
-//typedef mp::number<mp::cpp_dec_float<1000>> FLOAT;
-//typedef mp::cpp_int INT;
 
 int main () {
-    int dig = 1500000000;
-    int prec = dig * log2(10);
+    long long digi = 1000000;
+    double log = 3.32192809489;
+    long long prec = digi * log;
 
     mpf_set_default_prec(prec);
 
@@ -36,8 +33,9 @@ int main () {
 
     //=====================================================================================//
     
-    long long Loop = 30;
-    for (long long i = 0; i < Loop; ++i){
+    int Loop = 20;
+
+    for (int i = 0; i < Loop; ++i){
         mpf_class AA, AAA, AAAA;
         AA = A + B;
         PI = (AA * AA) / (4 * T);
@@ -58,7 +56,7 @@ int main () {
     end = chrono::system_clock::now();
     double elapsed = chrono::duration_cast<chrono::milliseconds>(end-start).count();
 
-    cout << setprecision(dig) << PI << endl;
+    cout << setprecision(digi) << PI << endl;
     cout << "ms : " << elapsed << endl;
     
     //cout << setprecision(200) << PI << endl;
