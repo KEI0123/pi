@@ -4,7 +4,7 @@ import requests
 api_url = "https://api.pi.delivery/v1/pi"
 
 # パラメータの設定
-start = 1000000000 - 1000 + 1  # 取得開始位置
+start = 10000000 - 1000 + 1  # 取得開始位置
 number_of_digits = 1000  # 取得する桁数
 
 # APIリクエストのURL
@@ -21,7 +21,7 @@ if response.status_code == 200:
     
     # pi.txtファイルの読み込み
     try:
-        with open("../kika/pi.txt", "r") as file:
+        with open("/home/kei/workspace/c++/pi/gmp/kika/pi.txt", "r") as file:
             pi_digits_file = file.read().replace('\n', '').strip()
             
             # 指定開始位置からの桁を抽出

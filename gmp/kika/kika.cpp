@@ -1,17 +1,17 @@
-#include <chrono>
-#include <iostream>
-#include <string>
-#include <fstream>
 #include <gmpxx.h>
 #include <math.h>
-#include <omp.h>
-#include <boost/multiprecision/cpp_int.hpp>
+
 #include <boost/multiprecision/cpp_dec_float.hpp>
+#include <boost/multiprecision/cpp_int.hpp>
+#include <chrono>
+#include <fstream>
+#include <iostream>
+#include <string>
 
 using namespace std;
 
-int main () {
-    long long digi = 1000000;
+int main() {
+    long long digi = 10000000;
     double log = 3.32192809489;
     long long prec = digi * log;
 
@@ -32,17 +32,17 @@ int main () {
     start = chrono::system_clock::now();
 
     //=====================================================================================//
-    
-    int Loop = 20;
 
-    for (int i = 0; i < Loop; ++i){
-        mpf_class AA, AAA, AAAA;
+    int Loop = 23;
+
+    mpf_class AA, AAA, AAAA;
+    for (int i = 0; i < Loop; ++i) {
         AA = A + B;
-        PI = (AA * AA) / (4 * T);
 
         An = AA / 2;
 
         AAA = A * B;
+
         B = sqrt(AAA);
 
         AAAA = A - An;
@@ -50,17 +50,18 @@ int main () {
         P *= 2;
         A = An;
     }
-    
+    AA = A + B;
+    PI = (AA * AA) / (4 * T);
+
     //=====================================================================================//
 
     end = chrono::system_clock::now();
-    double elapsed = chrono::duration_cast<chrono::milliseconds>(end-start).count();
+    double elapsed =
+        chrono::duration_cast<chrono::milliseconds>(end - start).count();
 
     cout << setprecision(digi) << PI << endl;
     cout << "ms : " << elapsed << endl;
-    
-    //cout << setprecision(200) << PI << endl;
-    
+
     char *str = nullptr;
     gmp_asprintf(&str, "%.Ff", PI.get_mpf_t());
     string result(str);
@@ -68,23 +69,23 @@ int main () {
     string PIout = "";
 
     int i = 1;
-    //bool a = true;
+    // bool a = true;
     PIstr.erase(1, 1);
     for (char c : PIstr) {
         PIout.push_back(c);
-        //if (i == 1 && a == true) {
-        //    PIout.push_back('\n');
-        //    a = false;
-        //    i = 0;
-        //} 
-        //else if (i % 11 == 0) {
-        //    PIout.push_back(' ');
-        //}
+        // if (i == 1 && a == true) {
+        //     PIout.push_back('\n');
+        //     a = false;
+        //     i = 0;
+        // }
+        // else if (i % 11 == 0) {
+        //     PIout.push_back(' ');
+        // }
         if (i == 100) {
             PIout.push_back('\n');
             i = 0;
         }
-        
+
         ++i;
     }
 
