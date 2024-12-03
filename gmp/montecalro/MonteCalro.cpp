@@ -14,17 +14,15 @@ using Real = mp::number<mp::cpp_dec_float<1024>>;
 
 using namespace std;
 
-long long NUM = 0;
+long long NUM = 10000;
 
 int main() {
     random_device rd;
     mt19937 mt(rd());
     uniform_real_distribution<double> dist(0.0, 1.0);
 
-    cout << "Please enter the number. ";
-    cin >> NUM;
     std::chrono::system_clock::time_point start, end;
-    start = std::chrono::system_clock::now();          // 計測開始時間
+    start = std::chrono::system_clock::now();  // 計測開始時間
 
     Real x, y;
     long long cou = 0;

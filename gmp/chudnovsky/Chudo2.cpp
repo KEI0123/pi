@@ -1,6 +1,6 @@
-#include <iostream>
 #include <boost/multiprecision/cpp_dec_float.hpp>
 #include <boost/multiprecision/cpp_int.hpp>
+#include <iostream>
 
 using namespace boost::multiprecision;
 
@@ -22,7 +22,9 @@ mp_float chudnovsky_term(int k) {
     mp_int X = 545140134;
     mp_int K = 6 * k;
     mp_float numerator = mp_float(factorial(K)) * mp_float(L + X * k);
-    mp_float denominator = mp_float(factorial(3 * k)) * pow(mp_float(factorial(k)), 3) * pow(mp_float(-262537412640768000), k);
+    mp_float denominator = mp_float(factorial(3 * k)) *
+                           pow(mp_float(factorial(k)), 3) *
+                           pow(mp_float(-262537412640768000), k);
     return numerator / denominator;
 }
 
@@ -43,6 +45,7 @@ mp_float calculate_pi(int n) {
 int main() {
     int terms = 10;  // 項数を指定
     mp_float pi = calculate_pi(terms);
-    std::cout << std::setprecision(std::numeric_limits<mp_float>::digits10) << "円周率: " << pi << std::endl;
+    std::cout << std::setprecision(std::numeric_limits<mp_float>::digits10)
+              << "円周率: " << pi << std::endl;
     return 0;
 }

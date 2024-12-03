@@ -11,7 +11,7 @@
 using namespace std;
 
 int main() {
-    long long digi = 10000000;
+    long long digi = 100000;
     double log = 3.32192809489;
     long long prec = digi * log;
 
@@ -33,7 +33,7 @@ int main() {
 
     //=====================================================================================//
 
-    int Loop = 23;
+    int Loop = 3;
 
     mpf_class AA, AAA, AAAA;
     for (int i = 0; i < Loop; ++i) {
